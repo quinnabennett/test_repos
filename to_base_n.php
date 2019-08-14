@@ -54,7 +54,13 @@ I say you are very kind
 but still, you are wrong",
 "you used this program
 very well done sir (or ma'am)
-you are dismissed now");
+you are dismissed now",
+"exhausted surfer
+stop browsing the web so late
+go to sleep my dude",
+"silver canopies
+like mystical ceiling fans
+sway in a calm breeze");
 
 //ask user for num
 echo "enter a number\n";
