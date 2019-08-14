@@ -60,7 +60,10 @@ stop browsing the web so late
 go to sleep my dude",
 "silver canopies
 like mystical ceiling fans
-sway in a calm breeze");
+sway in a calm breeze",
+"I shot a nerf gun
+I didn't get in trouble
+it made me quite proud");
 
 //ask user for num
 echo "enter a number\n";
