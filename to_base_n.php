@@ -51,7 +51,10 @@ I will give you a hard task
 please don't screw it up:)",
 "you say I am smart
 I say you are very kind
-but still, you are wrong");
+but still, you are wrong",
+"you used this program
+very well done sir (or ma'am)
+you are dismissed now");
 
 //ask user for num
 echo "enter a number\n";
