@@ -211,8 +211,13 @@ for ($x=0; $x<=$max_place; $x++) {
 }
 
 //write output value as a string, then reverse the order of the string
-echo "new value: " . strrev(strval($output)) . "\n\n";
-
+echo "new value: " . strrev(strval($output)) . "\n";
+if ($base == 10) {
+	die("I don't think you quite get the point of this...\n\n");
+}
+else {
+	echo "\n";
+}
 //ask user if they want decode chart, get sassy if they don't answer well
 echo "if you would like a chart for decoding, type 'yes please' (the 'please' is important. I don't deal with people without manners)
 If not, you can type literally anything else, e.g. 'nah bro-fam im all chillin we gucci out here no charts needed swag dope cash money $$$'
@@ -248,7 +253,7 @@ $haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely'
 		echo ("\nhere you go!\n\n");
 		$rand = array_rand($haikus,1);
 		if ($rand == 0) {
-			echo $haikus[0][date(w)] . "\n\n";
+			echo $haikus[0][date("w")] . "\n\n";
 		}
 		else {
 			echo $haikus[$rand] . "\n\n";
