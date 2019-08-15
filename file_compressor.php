@@ -54,7 +54,7 @@ $filesize = filesize($file);
     $size = round($filesize/1048576) . "MB";
   }
 
-  echo "\033[1;31m" . $size . " \033[0m";
+  echo "\033[0;31m" . $size . " \033[0m";
 }
 
 ?>
