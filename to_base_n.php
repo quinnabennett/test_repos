@@ -66,7 +66,18 @@ I didn't get in trouble
 it made me quite proud",
 "welcome to 'MUR-CA'
 it should be 'A-MER-I-CA'
-but we say it wrong");
+but we say it wrong",
+"you won't believe this
+the author's brother wrote it
+what a funny kid
+
+asked for a haiku
+but got an insult instead
+still, it's a haiku
+
+'no thank you poop head 
+I am not as bored as you
+I'm doing fun things'");
 
 //ask user for num
 echo "enter a number\n";
