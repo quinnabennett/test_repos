@@ -79,7 +79,13 @@ still, it's a haiku
 
 'no thank you poop head
 I am not as bored as you
-I'm doing fun things'");
+I'm doing fun things'",
+"don't eat too much cake
+deliciously fattening
+but not so healthy",
+"yucky wellness shot
+so much burning in my throat
+I hope it's worth it");
 
 //ask user for num
 echo "enter a number\n";
