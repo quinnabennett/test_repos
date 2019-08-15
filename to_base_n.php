@@ -1,5 +1,6 @@
 <?php
 
+//intro for user
 echo "\nHow it works:
 
 This program is designed to take two inputs. First, it needs a numeric value. Second, it needs another numeric value between 1 and 62 (inclusive).
@@ -14,6 +15,7 @@ P.S:
 
 Let's get started!\n\n";
 
+//haikus for polite users
 global $haikus;
 $haikus = array(array(
 "I know something cool
@@ -75,7 +77,7 @@ asked for a haiku
 but got an insult instead
 still, it's a haiku
 
-'no thank you poop head 
+'no thank you poop head
 I am not as bored as you
 I'm doing fun things'");
 
@@ -85,7 +87,6 @@ enter_num:
 $num = trim(fgets(fopen("php://stdin","r")));
 
 //check for values that will result in abnormal behaivor of the program (letters, special characters, rude users, etc.) If value is acceptable, ask user for base
-
 if ($num == 'NO') {
   goto rude_num;
 }
@@ -118,7 +119,6 @@ enter_base:
 $base = strval(trim(fgets(fopen("php://stdin","r"))));
 
 //check for base values outside of range, unexpected characters, and rude or desperate users
-
 if ($base == 'NO') {
   goto rude_base;
 }
@@ -151,6 +151,7 @@ else {
   goto convert;
 }
 
+//helps rude and desparate users get through the program
 rude_base:
 echo "\ncome on now, ask nicely\n";
 goto enter_base;
@@ -223,6 +224,8 @@ for ($x=0; $x<=$max_place; $x++) {
 
 //write output value as a string, then reverse the order of the string
 echo "new value: " . strrev(strval($output)) . "\n";
+
+//mock user slightly and kill program if try to convert decimal to decimal
 if ($base == 10) {
 	die("I don't think you quite get the point of this...\n\n");
 }
@@ -253,6 +256,7 @@ elseif ($chart == 'i hate you' || $chart == 'I hate you' || $chart == 'i hate u'
   goto impressively_insulting;
 }
 
+//reward polite users
 elseif ($chart == 'no thank you, your majesty') {
 	echo ("\nmy goodness! finally, somebody polite around here! my loyal subject, you are very, very welcome. would you care for a haiku?\n\n");
 	$haiku = strtolower(trim(fgets(fopen("php://stdin","r"))));
@@ -275,6 +279,7 @@ $haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely'
 	}
 }
 
+//output chart to help users decode output value
 elseif ($chart == 'yes' || $chart == 'ok' || $chart == 'if you want' || $chart == 'if u want' || $chart == 'yea' || $chart == 'sure' || $chart == 'i guess' || $chart == 'i guess so' || $chart == 'fine' ||
 $chart == 'mmhmm' || $chart == 'mm-hmm' || $chart == 'please' || $chart == 'yes pls' || $chart == 'yes plz' || $chart == 'absolutely' || $chart == 'definitely' || $chart == 'of course' ||
 $chart == 'for sure' || $chart == 'always' || $chart == 'yes your majesty' || $chart == 'yes please, your majesty' || $chart == 'yes please your majesty' || $chart == 'ooo yes' || $chart == 'most certainly' || $chart == 'certainly' ||
