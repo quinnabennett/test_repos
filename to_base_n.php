@@ -63,7 +63,10 @@ like mystical ceiling fans
 sway in a calm breeze",
 "I shot a nerf gun
 I didn't get in trouble
-it made me quite proud");
+it made me quite proud",
+"welcome to 'MUR-CA'
+it should be 'A-MER-I-CA'
+but we say it wrong");
 
 //ask user for num
 echo "enter a number\n";
