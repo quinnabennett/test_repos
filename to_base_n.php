@@ -87,17 +87,22 @@ but not so healthy",
 so much burning in my throat
 I hope it's worth it",
 "croissants are so good
-especially with chocolate
->satisfactory",
+more than satisfactory
+better with chocolate",
 "I rode bikes today
 I also lied today
-which statement is true?"
+which statement is true?",
 "rockets are so cool
 space is like the biggest thing
 someday I will go there",
 "mars is a planet
 it dwells within reach of us
-someday you will see");
+someday you will see",
+"shakespeare wrote poems
+but did that make him famous
+yes it really did");
+
+echo count($haikus);
 
 //ask user for num
 echo "enter a number\n";
