@@ -30,13 +30,13 @@ if ($num == 'NO') {
   goto rude_num;
 }
 elseif (strtolower($num) == 'please don\'t make me do this') {
-  die ("\n...ok\n");
+  die ("\n\033[0;32m...ok\033[0m\n");
 }
 elseif (strtolower($num) == 'i hate you' || strtolower($num) == 'i hate u') {
   goto impressively_insulting;
 }
 elseif (!ctype_digit($num)) {
-  echo "\nsorry! only numeric values are accepted in this field. please try again\n";
+  echo "\n\033[0;34msorry! only numeric values are accepted in this field. please try again\n";
 	goto enter_num;
 }
 else {
@@ -56,20 +56,20 @@ if ($base == 'NO') {
   goto rude_base;
 }
 elseif (strtolower($base) == 'please don\'t make me do this') {
-  die ("\n...ok\n");
+  die ("\n\033[0;32m...ok\033[0m\n");
 }
 elseif (strtolower($base) == 'i hate you' || strtolower($base) == 'i hate u') {
   goto impressively_insulting;
 }
 elseif (!ctype_digit($base)) {
-  echo "\nsorry! only numeric values are accepted in this field. please try again\n";
+  echo "\n\033[0;34msorry! only numeric values are accepted in this field. please try again\n";
 	goto enter_base;
 }
 elseif ($base > 62) {
 	global $large_base_count;
 	$large_base_count += 1;
 	if ($large_base_count < 4) {
-		echo "\nbase too large. please enter a new base:)\n";
+		echo "\n\033[0;34mbase too large. please enter a new base:)\n\033[0m";
 	  goto enter_base;
 	}
 	elseif ($large_base_count > 3 && $large_base_count < 8) {
@@ -82,11 +82,11 @@ elseif ($base > 62) {
 		goto enter_base;
 	}
 	else {
-		die ("\n\033[0;31mOK WELL YOU ARE \033[1;31mCLEARLY\033[0;31m JUST HERE TO ABUSE THIS SERVICE SO THAT'S THE END OF THAT. GOODBYE! DON'T EVER COME BACK!\n\n\033[0m");
+		die ("\n\033[0;31mOK WELL YOU ARE \033[1;31mCLEARLY\033[0;31m JUST HERE TO ABUSE THIS SERVICE SO THAT'S THE END OF THAT. \033[1;31mGOODBYE!\n\n\033[0m");
 	}
 }
 elseif ($base == 0) {
-	echo ("\nbase cannot be zero. please enter a new base:)\n");
+	echo ("\n\033[0;34mbase cannot be zero. please enter a new base:)\033[0m\n");
   goto enter_base;
 }
 else {
@@ -95,21 +95,21 @@ else {
 
 //helps rude and desparate users get through the program
 rude_num:
-echo "\ncome on now, ask nicely\n";
+echo "\n\033[0;35mcome on now, ask nicely\033[0m\n";
 goto enter_num;
 
 rude_base:
-echo "\ncome on now, ask nicely\n";
+echo "\n\033[0;35mcome on now, ask nicely\033[0m\n";
 goto enter_base;
 
 impressively_insulting:
-die ("\nalright, that's enough.
+die ("\n\033[0;31malright, that's enough.
 that was incredibly rude.
 all I'm doing is trying to help you and here you are trying to break the program and insult me.
 do you like poetry? here's a haiku for you:\n
       you are really rude.
       I won't help you anymore.
-      closing the program...\n\n");
+      closing the program...\033[0m\n\n");
 
 //do actual base conversion and output it
 convert:
@@ -117,13 +117,18 @@ echo "\n\033[0m\033[0;34moriginal value: \033[1;36m" . $num . "\n";
 echo "\033[0;34mconvert to base: \033[1;36m" . $base . "\n\n";
 
 //make fun of user (lightly) if they're being obnoxious
-if ($num == 0) {
-  echo "new value: 0 \n(that was kind of pointless, don't you think?)\n";
+if ($num == 0 && $base != 10) {
+  echo "\033[0;34mnew value: \033[1;36m0 \n\033[0;32m(that was kind of pointless, don't you think?)\n\n";
   goto end;
 }
 //mock user slightly and kill program if try to convert decimal to decimal
-elseif ($base == 10) {
-	die ("new value: " . $num . " \nI don't think you quite get the point of this...\n\n");
+elseif ($base == 10 && $num != 0) {
+	echo "\033[0;34mnew value: \033[1;36m" . $num . " \n\033[0;32mI don't think you quite get the point of this...\n\n";
+	goto end;
+}
+elseif ($num == 0 && $base == 10) {
+	echo "\033[0;32myou're ridiculously terrible at this\n\n";
+	goto end;
 }
 
 //set variables
@@ -169,7 +174,9 @@ echo "\033[0m\033[0;34mnew value: \033[1;36m" . strrev(strval($output)) . "\n\n"
 echo "\033[0;34mif you would like a chart for decoding, type '\033[3;32myes please\033[0;34m' (the 'please' is important. I don't deal with people without manners)
 If not, you can type literally anything else, e.g. '\033[3;32mnah bro-fam im all chillin we gucci out here no charts needed swag dope cash money $$$\033[0;34m'
 Just please don't be rude\n\n";
+echo "\033[0m\033[1;36m";
 $chart = strtolower(trim(fgets(fopen("php://stdin","r"))));
+echo "\033[0m";
 
 if ($chart == 'nah bro-fam im all chillin we gucci out here no charts needed swag dope cash money $$$') {
 	echo "\nreally? that's pretty unoriginal. I mean I said you could say that, but you really couldn't think of anything else?
@@ -188,7 +195,7 @@ elseif ($chart == 'i hate you' || $chart == 'I hate you' || $chart == 'i hate u'
 }
 //reward polite users
 elseif ($chart == 'no thank you, your majesty') {
-	echo ("\nmy goodness! finally, somebody polite around here! my loyal subject, you are very, very welcome. would you care for a haiku?\n\n");
+	echo ("\n\033[0;35mmy goodness! finally, somebody polite around here! my loyal subject, you are very, very welcome. would you care for a haiku?\033[1;36m\n\n");
 	$haiku = strtolower(trim(fgets(fopen("php://stdin","r"))));
 
 	if ($haiku == 'yes' || $haiku == 'ok' || $haiku == 'if you want' || $haiku == 'if u want' || $haiku == 'yea' || $haiku == 'sure' || $haiku == 'i guess' || $haiku == 'i guess so' || $haiku == 'fine' ||
@@ -214,7 +221,7 @@ elseif ($chart == 'yes' || $chart == 'ok' || $chart == 'if you want' || $chart =
 $chart == 'mmhmm' || $chart == 'mm-hmm' || $chart == 'please' || $chart == 'yes pls' || $chart == 'yes plz' || $chart == 'absolutely' || $chart == 'definitely' || $chart == 'of course' ||
 $chart == 'for sure' || $chart == 'always' || $chart == 'yes your majesty' || $chart == 'yes please, your majesty' || $chart == 'yes please your majesty' || $chart == 'ooo yes' || $chart == 'most certainly' || $chart == 'certainly' ||
 $chart == 'i would' || $chart == 'quite') {
-	die("\nI do believe that it was stately quite clearly above that the 'please' was IMPORTANT! no chart for you\n\n");
+	die("\n\033[0;31mI do believe that it was stately quite clearly above that the '\033[3;31mplease\033[0;31m' was \033[4;31mIMPORTANT\033[0;31m! no chart for you\033[0m\n\n");
 }
 //output chart for users that want it and asked correctly
 elseif ($chart == 'yes please') {
@@ -240,7 +247,7 @@ how to use:
 
 else {
 goodbye:
-	echo "\nalright, goodbye then...\n\n";
+	echo "\n\033[0;34malright, goodbye then\033[1;36m.\033[1;32m.\033[1;33m.\n\n";
 	goto end;
 }
 /* or the really easy way to do it...
@@ -249,4 +256,5 @@ echo base_convert($num, $decimal, $base) . "\n";
 
 */
 end:
+echo "\033[0m";
 ?>
