@@ -1,5 +1,8 @@
 <?php
 
+//haikus for polite users
+include "./haikus.php";
+
 //intro for user
 echo "\n\033[0m\033[3;34mHow it works:
 
@@ -15,96 +18,6 @@ P.S:
 
 Let's get started!\033[0m\n\n";
 
-//haikus for polite users
-global $haikus;
-$haikus = array(array(
-"I know something cool
-I bet you don't know what it is
-(today is sunday)",
-"today is monday
-I hope you have a great week
-goodbye then, human",
-"tuesday is quite weird
-that's because it's not green yet
-I hope you're confused",
-"wends-day, wed-nes-day
-no matter what, it's so odd
-I think I'll just leave",
-"thursday might be fine
-I have plans on friday night
-but thursday will work",
-"I'll tell you something
-I was born on a friday
-but that means nothing",
-"what is it they say?
-saturday is for the boys?
-that's a bit sexist"),
-"once there was a bird
-this bird was named Georgina
-that's all I can say",
-"kids can talk so fast
-at least relative to sloths
-time doesn't exist",
-"can you solve problems?
-I will give you a hard task
-please don't screw it up:)",
-"you say I am smart
-I say you are very kind
-but still, you are wrong",
-"you used this program
-very well done sir (or ma'am)
-you are dismissed now",
-"exhausted surfer
-stop browsing the web so late
-go to sleep my dude",
-"silver canopies
-like mystical ceiling fans
-sway in a calm breeze",
-"I shot a nerf gun
-I didn't get in trouble
-it made me quite proud",
-"welcome to 'MUR-CA'
-it should be 'A-MER-I-CA'
-but we say it wrong",
-"you won't believe this
-the author's brother wrote it
-what a funny kid
-
-asked for a haiku
-but got an insult instead
-still, it's a haiku
-
-'no thank you poop head
-I am not as bored as you
-I'm doing fun things'",
-"don't eat too much cake
-deliciously fattening
-but not so healthy",
-"yucky wellness shot
-so much burning in my throat
-I hope it's worth it",
-"croissants are so good
-more than satisfactory
-better with chocolate",
-"I rode bikes today
-I also told lies today
-which statement is true?",
-"rockets are so cool
-space is like the biggest thing
-someday I will go there",
-"mars is a planet
-it dwells within reach of us
-someday you will see",
-"shakespeare wrote poems
-but did that make him famous
-yes it really did",
-"hahahahaha
-hehehehehehehe
-haha so funny",
-"go george harrison
-I believe in your power
-you got this mister");
-
 //ask user for num
 echo "\033[0;34menter a number\n\033[0m";
 enter_num:
@@ -116,27 +29,19 @@ echo "\033[0m";
 if ($num == 'NO') {
   goto rude_num;
 }
-
 elseif (strtolower($num) == 'please don\'t make me do this') {
   die ("\n...ok\n");
 }
-
 elseif (strtolower($num) == 'i hate you' || strtolower($num) == 'i hate u') {
   goto impressively_insulting;
 }
-
 elseif (!ctype_digit($num)) {
   echo "\nsorry! only numeric values are accepted in this field. please try again\n";
 	goto enter_num;
 }
-
 else {
   goto base;
 }
-
-rude_num:
-echo "\ncome on now, ask nicely\n";
-goto enter_num;
 
 //ask user for base
 base:
@@ -150,20 +55,16 @@ echo "\033[0m";
 if ($base == 'NO') {
   goto rude_base;
 }
-
 elseif (strtolower($base) == 'please don\'t make me do this') {
   die ("\n...ok\n");
 }
-
 elseif (strtolower($base) == 'i hate you' || strtolower($base) == 'i hate u') {
   goto impressively_insulting;
 }
-
 elseif (!ctype_digit($base)) {
   echo "\nsorry! only numeric values are accepted in this field. please try again\n";
 	goto enter_base;
 }
-
 elseif ($base > 62) {
 	global $large_base_count;
 	$large_base_count += 1;
@@ -184,18 +85,19 @@ elseif ($base > 62) {
 		die ("\n\033[0;31mOK WELL YOU ARE \033[1;31mCLEARLY\033[0;31m JUST HERE TO ABUSE THIS SERVICE SO THAT'S THE END OF THAT. GOODBYE! DON'T EVER COME BACK!\n\n\033[0m");
 	}
 }
-
-//kills program and outputs message if base is zero
 elseif ($base == 0) {
 	echo ("\nbase cannot be zero. please enter a new base:)\n");
   goto enter_base;
 }
-
 else {
   goto convert;
 }
 
 //helps rude and desparate users get through the program
+rude_num:
+echo "\ncome on now, ask nicely\n";
+goto enter_num;
+
 rude_base:
 echo "\ncome on now, ask nicely\n";
 goto enter_base;
@@ -209,6 +111,7 @@ do you like poetry? here's a haiku for you:\n
       I won't help you anymore.
       closing the program...\n\n");
 
+//do actual base conversion and output it
 convert:
 echo "\n\033[0m\033[0;34moriginal value: \033[1;36m" . $num . "\n";
 echo "\033[0;34mconvert to base: \033[1;36m" . $base . "\n\n";
@@ -226,50 +129,39 @@ elseif ($base == 10) {
 //set variables
 $decimal = 10;
 $output = null;
-
 //create arrays for use in converting to alphanumeric values (for bases above 10)
 $alphanum1 = array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm');
 $alphanum2 = array('n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
-
 //set what the largest place value will be
 $max_place = floor(log($num,$base));
-
 for ($x=0; $x<=$max_place; $x++) {
-
 	//calculate which numeral should go in each place
 	$base2pwr = pow($base, $x);
 	$pre_outp = floor($num / $base2pwr);
 	$outp = $pre_outp % $base;
-
 	//translate numeric values into lowercase alphanumeric values (for bases above 10 and below 24)
 	if (9 < $outp && $outp < 23) {
 		$alpha_outp = $outp - 10;
 		$outp = $alphanum1[$alpha_outp];
 	}
-
 	//translate numeric values into lowercase alphanumeric values (for bases above 23 and below 37)
 	elseif (22 < $outp && $outp < 36) {
 		$alpha_outp = $outp - 23;
 		$outp = $alphanum2[$alpha_outp];
 	}
-
 	//translate numeric values into uppercase alphanumeric values (for bases above 36 and below 50)
 	elseif (35 < $outp && $outp < 49) {
 		$alpha_outp = $outp - 36;
 		$outp = strtoupper($alphanum1[$alpha_outp]);
 	}
-
 	//translate numeric values into uppercase alphanumeric values (for bases above 49 and below 63)
 	elseif (48 < $outp && $outp < 63) {
 		$alpha_outp = $outp - 49;
 		$outp = strtoupper($alphanum2[$alpha_outp]);
 	}
-
 	//append each numeral to the final value, starting from the units and moving upwards to the highest place value
 	$output .= $outp;
-
 }
-
 //write output value as a string, then reverse the order of the string
 echo "\033[0m\033[0;34mnew value: \033[1;36m" . strrev(strval($output)) . "\n\n";
 
@@ -285,18 +177,15 @@ I hope you at least used copy and paste and didn't COMPLETELY waste your time.
 oh well, I can't complain too much... you made it this far so you can't have been too rude.\n\n";
 	goto end;
 }
-
 elseif ($chart == 'you\'re ugly' || $chart == 'youre ugly' || $chart == 'your ugly' || $chart == 'ur ugly' || $chart == 'you\'re dumb' || $chart == 'youre dumb' || $chart == 'your dumb' || $chart == 'ur dumb' ||
 $chart == 'im being rude' || $chart == 'I don\'t need your chart') {
 	echo "\nok I'm pretty sure I explicitly said not to be rude. and you're being very rude. you get a little bit of credit for making it this far, but only a little bit.
 I can't believe I put up with this. I wouldn't give you the chart now even if you wanted it. even if you gave me cookies.\n\n";
 	goto end;
 }
-
 elseif ($chart == 'i hate you' || $chart == 'I hate you' || $chart == 'i hate u' || $chart == 'I hate u' || $chart == 'I HATE YOU' || $chart == 'I HATE U') {
   goto impressively_insulting;
 }
-
 //reward polite users
 elseif ($chart == 'no thank you, your majesty') {
 	echo ("\nmy goodness! finally, somebody polite around here! my loyal subject, you are very, very welcome. would you care for a haiku?\n\n");
@@ -320,14 +209,14 @@ $haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely'
 	}
 }
 
-//output chart to help users decode output value
+//get annoyed about really dumb users that didn't read the instructions
 elseif ($chart == 'yes' || $chart == 'ok' || $chart == 'if you want' || $chart == 'if u want' || $chart == 'yea' || $chart == 'sure' || $chart == 'i guess' || $chart == 'i guess so' || $chart == 'fine' ||
 $chart == 'mmhmm' || $chart == 'mm-hmm' || $chart == 'please' || $chart == 'yes pls' || $chart == 'yes plz' || $chart == 'absolutely' || $chart == 'definitely' || $chart == 'of course' ||
 $chart == 'for sure' || $chart == 'always' || $chart == 'yes your majesty' || $chart == 'yes please, your majesty' || $chart == 'yes please your majesty' || $chart == 'ooo yes' || $chart == 'most certainly' || $chart == 'certainly' ||
 $chart == 'i would' || $chart == 'quite') {
 	die("\nI do believe that it was stately quite clearly above that the 'please' was IMPORTANT! no chart for you\n\n");
 }
-
+//output chart for users that want it and asked correctly
 elseif ($chart == 'yes please') {
 	echo "\n0=0   1=1   2=2   3=3   4=4   5=5   6=6   7=7   8=8   9=9
 a=10  b=11  c=12  d=13  e=14  f=15  g=16  h=17  i=18  j=19
