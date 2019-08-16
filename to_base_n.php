@@ -91,7 +91,13 @@ especially with chocolate
 >satisfactory",
 "I rode bikes today
 I also lied today
-which statement is true?");
+which statement is true?"
+"rockets are so cool
+space is like the biggest thing
+someday I will go there",
+"mars is a planet
+it dwells within reach of us
+someday you will see");
 
 //ask user for num
 echo "enter a number\n";
