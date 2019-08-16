@@ -85,7 +85,10 @@ deliciously fattening
 but not so healthy",
 "yucky wellness shot
 so much burning in my throat
-I hope it's worth it");
+I hope it's worth it",
+"croissants are so good
+especially with chocolate
+>satisfactory");
 
 //ask user for num
 echo "enter a number\n";
