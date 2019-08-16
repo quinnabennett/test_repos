@@ -88,7 +88,10 @@ so much burning in my throat
 I hope it's worth it",
 "croissants are so good
 especially with chocolate
->satisfactory");
+>satisfactory",
+"I rode bikes today
+I also lied today
+which statement is true?");
 
 //ask user for num
 echo "enter a number\n";
