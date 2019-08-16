@@ -102,8 +102,6 @@ someday you will see",
 but did that make him famous
 yes it really did");
 
-echo count($haikus);
-
 //ask user for num
 echo "enter a number\n";
 enter_num:
