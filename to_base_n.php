@@ -1,7 +1,7 @@
 <?php
 
 //intro for user
-echo "\nHow it works:
+echo "\n\033[0m\033[3;34mHow it works:
 
 This program is designed to take two inputs. First, it needs a numeric value. Second, it needs another numeric value between 1 and 62 (inclusive).
 It will convert the first value from base 10 (decimal) to base (whatever the second number is). If that doesn't make any sense, try it out.
@@ -13,7 +13,7 @@ letters, we switch to uppercase: '...w, x, y, z, A, B, C...' Lowercase 'a' repre
 P.S:
 	Please note that while the program is designed to be pretty tough, it can occasionally get hurt. Try not to be too rude. :)
 
-Let's get started!\n\n";
+Let's get started!\033[0m\n\n";
 
 //haikus for polite users
 global $haikus;
@@ -39,9 +39,6 @@ but that means nothing",
 "what is it they say?
 saturday is for the boys?
 that's a bit sexist"),
-"well this is awkward
-I don't write poetry much
-did I do it right?",
 "once there was a bird
 this bird was named Georgina
 that's all I can say",
@@ -90,7 +87,7 @@ I hope it's worth it",
 more than satisfactory
 better with chocolate",
 "I rode bikes today
-I also lied today
+I also told lies today
 which statement is true?",
 "rockets are so cool
 space is like the biggest thing
@@ -100,12 +97,20 @@ it dwells within reach of us
 someday you will see",
 "shakespeare wrote poems
 but did that make him famous
-yes it really did");
+yes it really did",
+"hahahahaha
+hehehehehehehe
+haha so funny",
+"go george harrison
+I believe in your power
+you got this mister");
 
 //ask user for num
-echo "enter a number\n";
+echo "\033[0;34menter a number\n\033[0m";
 enter_num:
+echo "\033[0m\033[1;36m";
 $num = trim(fgets(fopen("php://stdin","r")));
+echo "\033[0m";
 
 //check for values that will result in abnormal behaivor of the program (letters, special characters, rude users, etc.) If value is acceptable, ask user for base
 if ($num == 'NO') {
@@ -135,9 +140,11 @@ goto enter_num;
 
 //ask user for base
 base:
-echo "\nenter a base (62 and below please)\n";
+echo "\n\033[0;34menter a base (62 and below please)\n\033[0m";
 enter_base:
+echo "\033[0m\033[1;36m";
 $base = strval(trim(fgets(fopen("php://stdin","r"))));
+echo "\033[0m";
 
 //check for base values outside of range, unexpected characters, and rude or desperate users
 if ($base == 'NO') {
@@ -158,8 +165,24 @@ elseif (!ctype_digit($base)) {
 }
 
 elseif ($base > 62) {
-	echo "\nbase too large. please enter a new base:)\n";
-  goto enter_base;
+	global $large_base_count;
+	$large_base_count += 1;
+	if ($large_base_count < 4) {
+		echo "\nbase too large. please enter a new base:)\n";
+	  goto enter_base;
+	}
+	elseif ($large_base_count > 3 && $large_base_count < 8) {
+		echo "\n\033[1;31mbase too large. please enter a new base\n\033[0m";
+		goto enter_base;
+	}
+	elseif ($large_base_count > 7 && $large_base_count < 13) {
+		echo "\n\033[5;31mERROR\033[0m\n";
+		echo "\033[0;31mENTER A SMALLER BASE!!!\033[0m\n";
+		goto enter_base;
+	}
+	else {
+		die ("\n\033[0;31mOK WELL YOU ARE \033[1;31mCLEARLY\033[0;31m JUST HERE TO ABUSE THIS SERVICE SO THAT'S THE END OF THAT. GOODBYE! DON'T EVER COME BACK!\n\n\033[0m");
+	}
 }
 
 //kills program and outputs message if base is zero
@@ -187,8 +210,8 @@ do you like poetry? here's a haiku for you:\n
       closing the program...\n\n");
 
 convert:
-echo "\noriginal value: " . $num . "\n";
-echo "convert to base: " . $base . "\n\n";
+echo "\n\033[0m\033[0;34moriginal value: \033[1;36m" . $num . "\n";
+echo "\033[0;34mconvert to base: \033[1;36m" . $base . "\n\n";
 
 //make fun of user (lightly) if they're being obnoxious
 if ($num == 0) {
@@ -248,11 +271,11 @@ for ($x=0; $x<=$max_place; $x++) {
 }
 
 //write output value as a string, then reverse the order of the string
-echo "new value: " . strrev(strval($output)) . "\n\n";
+echo "\033[0m\033[0;34mnew value: \033[1;36m" . strrev(strval($output)) . "\n\n";
 
 //ask user if they want decode chart, get sassy if they don't answer well
-echo "if you would like a chart for decoding, type 'yes please' (the 'please' is important. I don't deal with people without manners)
-If not, you can type literally anything else, e.g. 'nah bro-fam im all chillin we gucci out here no charts needed swag dope cash money $$$'
+echo "\033[0;34mif you would like a chart for decoding, type '\033[3;32myes please\033[0;34m' (the 'please' is important. I don't deal with people without manners)
+If not, you can type literally anything else, e.g. '\033[3;32mnah bro-fam im all chillin we gucci out here no charts needed swag dope cash money $$$\033[0;34m'
 Just please don't be rude\n\n";
 $chart = strtolower(trim(fgets(fopen("php://stdin","r"))));
 
