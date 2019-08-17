@@ -247,15 +247,15 @@ O=50  P=51  Q=52  R=53  S=54  T=55  U=56  V=47  W=58  X=59
 Y=60  Z=61
 
 \033[3;34mhow to use:
-	\033[1;34m1.\033[0m\033[3;34m 	start with the rightmost character of your 'new value' and use the chart to see its numeric value (only applicable to letter characters)
-	\033[1;34m2.\033[0m\033[3;34m 	each place value in the output value is your base to a power, starting from ^0 on the right and moving up to ^n as you move to the left.
+	\033[1;34m1)\033[0m\033[3;34m 	start with the rightmost character of your 'new value' and use the chart to see its numeric value (only applicable to letter characters)
+	\033[1;34m2)\033[0m\033[3;34m 	each place value in the output value is your base to a power, starting from ^0 on the right and moving up to ^n as you move to the left.
 		for example, in base 10, the units place is 10^0, or 1, the next place moving left is the tens, or 10^1, next is hundreds, or 10^2, etc.
 		the same principle applies to whichever base you chose. for example, if you chose base 2, the rightmost place is 2^0, or 1, next is 2^1,
 		or 2, next is 2^2, or 4, and so on. multiply the value of the character in the rightmost place by the place value of that place (this is
 		always 1 for the rightmost place). write that number down somewhere.
-	\033[1;34m3.\033[0m\033[3;34m 	do steps 1) and 2) for each character in your 'new value'
-	\033[1;34m4.\033[0m\033[3;34m 	add together all the numbers you've written down
-	\033[1;34m5.\033[0m\033[3;34m 	check to make sure the sum is equal to the first number you entered into the program. if it's not, then one of us did this wrong\n\n";
+	\033[1;34m3)\033[0m\033[3;34m 	do steps 1) and 2) for each character in your 'new value'
+	\033[1;34m4)\033[0m\033[3;34m 	add together all the numbers you've written down
+	\033[1;34m5)\033[0m\033[3;34m 	check to make sure the sum is equal to the first number you entered into the program. if it's not, then one of us did this wrong\n\n";
 }
 
 else {
