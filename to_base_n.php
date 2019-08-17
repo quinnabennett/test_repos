@@ -179,14 +179,14 @@ $chart = strtolower(trim(fgets(fopen("php://stdin","r"))));
 echo "\033[0m";
 
 if ($chart == 'nah bro-fam im all chillin we gucci out here no charts needed swag dope cash money $$$') {
-	echo "\nreally? that's pretty unoriginal. I mean I said you could say that, but you really couldn't think of anything else?
-I hope you at least used copy and paste and didn't COMPLETELY waste your time.
-oh well, I can't complain too much... you made it this far so you can't have been too rude.\n\n";
+	echo "\n\033[0;32mreally? that's pretty unoriginal. I mean I said you could say that, but you really couldn't think of anything else?
+I hope you at least used copy and paste, and didn't COMPLETELY waste your time.
+oh well, I can't complain too much... you made it this far, so you can't have been too rude.\n\n";
 	goto end;
 }
 elseif ($chart == 'you\'re ugly' || $chart == 'youre ugly' || $chart == 'your ugly' || $chart == 'ur ugly' || $chart == 'you\'re dumb' || $chart == 'youre dumb' || $chart == 'your dumb' || $chart == 'ur dumb' ||
 $chart == 'im being rude' || $chart == 'I don\'t need your chart') {
-	echo "\nok I'm pretty sure I explicitly said not to be rude. and you're being very rude. you get a little bit of credit for making it this far, but only a little bit.
+	echo "\n\033[0;31mok I'm pretty sure I explicitly said not to be rude. and you're being very rude. you get a \033[3;31mlittle\033[0;31m bit of credit for making it this far, but only a little bit.
 I can't believe I put up with this. I wouldn't give you the chart now even if you wanted it. even if you gave me cookies.\n\n";
 	goto end;
 }
@@ -202,14 +202,17 @@ elseif ($chart == 'no thank you, your majesty') {
 $haiku == 'mmhmm' || $haiku == 'mm-hmm' || $haiku == 'yes please' || $haiku == 'please' || $haiku == 'yes pls' || $haiku == 'yes plz' || $haiku == 'absolutely' || $haiku == 'definitely' || $haiku == 'of course' ||
 $haiku == 'for sure' || $haiku == 'always' || $haiku == 'yes your majesty' || $haiku == 'yes please, your majesty' || $haiku == 'yes please your majesty' || $haiku == 'ooo yes' || $haiku == 'most certainly' || $haiku == 'certainly' ||
 $haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely') {
-		echo ("\nhere you go!\n\n");
+		echo ("\n\033[0;34mhere you go!\n\n\033[0m");
 		$rand = array_rand($haikus,1);
+		$color = array_rand($colors,1);
+		echo $colors[$color];
 		if ($rand == 0) {
 			echo $haikus[0][date("w")] . "\n\n";
 		}
 		else {
 			echo $haikus[$rand] . "\n\n";
 		}
+		echo "\033[0m";
 	}
 	else {
 		goto goodbye;
@@ -221,11 +224,11 @@ elseif ($chart == 'yes' || $chart == 'ok' || $chart == 'if you want' || $chart =
 $chart == 'mmhmm' || $chart == 'mm-hmm' || $chart == 'please' || $chart == 'yes pls' || $chart == 'yes plz' || $chart == 'absolutely' || $chart == 'definitely' || $chart == 'of course' ||
 $chart == 'for sure' || $chart == 'always' || $chart == 'yes your majesty' || $chart == 'yes please, your majesty' || $chart == 'yes please your majesty' || $chart == 'ooo yes' || $chart == 'most certainly' || $chart == 'certainly' ||
 $chart == 'i would' || $chart == 'quite') {
-	die("\n\033[0;31mI do believe that it was stately quite clearly above that the '\033[3;31mplease\033[0;31m' was \033[4;31mIMPORTANT\033[0;31m! no chart for you\033[0m\n\n");
+	die("\n\033[0;31mI do believe that it was stately quite clearly that the '\033[3;31mplease\033[0;31m' was \033[4;31mIMPORTANT\033[0;31m! no chart for you\033[0m\n\n");
 }
 //output chart for users that want it and asked correctly
 elseif ($chart == 'yes please') {
-	echo "\n0=0   1=1   2=2   3=3   4=4   5=5   6=6   7=7   8=8   9=9
+	echo "\n\033[1;32m0=0   1=1   2=2   3=3   4=4   5=5   6=6   7=7   8=8   9=9
 a=10  b=11  c=12  d=13  e=14  f=15  g=16  h=17  i=18  j=19
 k=20  l=21  m=22  n=23  o=24  p=25  q=26  r=27  s=28  t=29
 u=30  v=31  w=32  x=33  y=34  z=35  A=36  B=37  C=38  D=39
@@ -233,21 +236,21 @@ E=40  F=41  G=42  H=43  I=44  J=45  K=46  L=47  M=48  N=49
 O=50  P=51  Q=52  R=53  S=54  T=55  U=56  V=47  W=58  X=59
 Y=60  Z=61
 
-how to use:
-	1) 	start with the rightmost character of your 'new value' and use the chart to see its numeric value (only applicable to letter characters)
-	2) 	each place value in the output value is your base to a power, starting from ^0 on the right and moving up to ^n as you move to the left.
+\033[3;34mhow to use:
+	\033[1;34m1.\033[0m\033[3;34m 	start with the rightmost character of your 'new value' and use the chart to see its numeric value (only applicable to letter characters)
+	\033[1;34m2.\033[0m\033[3;34m 	each place value in the output value is your base to a power, starting from ^0 on the right and moving up to ^n as you move to the left.
 		for example, in base 10, the units place is 10^0, or 1, the next place moving left is the tens, or 10^1, next is hundreds, or 10^2, etc.
 		the same principle applies to whichever base you chose. for example, if you chose base 2, the rightmost place is 2^0, or 1, next is 2^1,
 		or 2, next is 2^2, or 4, and so on. multiply the value of the character in the rightmost place by the place value of that place (this is
 		always 1 for the rightmost place). write that number down somewhere.
-	3. 	do steps 1) and 2) for each character in your 'new value'
-	4. 	add together all the numbers you've written down
-	5. 	check to make sure the sum is equal to the first number you entered into the program. if it's not, then one of us did this wrong\n\n";
+	\033[1;34m3.\033[0m\033[3;34m 	do steps 1) and 2) for each character in your 'new value'
+	\033[1;34m4.\033[0m\033[3;34m 	add together all the numbers you've written down
+	\033[1;34m5.\033[0m\033[3;34m 	check to make sure the sum is equal to the first number you entered into the program. if it's not, then one of us did this wrong\n\n";
 }
 
 else {
 goodbye:
-	echo "\n\033[0;34malright, goodbye then\033[1;36m.\033[1;32m.\033[1;33m.\n\n";
+	echo "\n\033[0;34malright, goodbye then...\n\n";
 	goto end;
 }
 /* or the really easy way to do it...
