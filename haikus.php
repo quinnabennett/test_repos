@@ -86,7 +86,13 @@ hehehehehehehe
 haha so funny",
 "go george harrison
 I believe in your power
-you got this mister");
+you got this mister",
+"beethoven ain't rap
+what are kids all about now
+it can't be mozart",
+"'where did you come from'
+those words spark music in all
+cotton-eyed joe rules");
 
 $colors = array("\033[0;30m", "\033[0;31m", "\033[0;32m", "\033[0;33m", "\033[0;34m", "\033[0;35m", "\033[0;36m", "\033[1;30m", "\033[1;31m", "\033[1;32m", "\033[1;33m", "\033[1;34m", "\033[1;35m", "\033[1;36m",
 "\033[3;30m", "\033[3;31m", "\033[3;32m", "\033[3;33m", "\033[3;34m", "\033[3;35m", "\033[3;36m", "\033[4;30m", "\033[4;31m", "\033[4;32m", "\033[4;33m", "\033[4;34m", "\033[4;35m", "\033[4;36m");
