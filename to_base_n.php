@@ -35,6 +35,9 @@ elseif (strtolower($num) == 'please don\'t make me do this') {
 elseif (strtolower($num) == 'i hate you' || strtolower($num) == 'i hate u') {
   goto impressively_insulting;
 }
+elseif ($num == 'give me a haiku; please my master overlord; I beg for your wit') {
+	goto haikuuu;
+}
 elseif (!ctype_digit($num)) {
   echo "\n\033[0;34msorry! only numeric values are accepted in this field. please try again\n";
 	goto enter_num;
@@ -57,6 +60,9 @@ if ($base == 'NO') {
 }
 elseif (strtolower($base) == 'please don\'t make me do this') {
   die ("\n\033[0;32m...ok\033[0m\n");
+}
+elseif ($base == 'give me a haiku; please my master overlord; I beg for your wit') {
+	goto haikuuu;
 }
 elseif (strtolower($base) == 'i hate you' || strtolower($base) == 'i hate u') {
   goto impressively_insulting;
@@ -184,6 +190,9 @@ I hope you at least used copy and paste, and didn't COMPLETELY waste your time.
 oh well, I can't complain too much... you made it this far, so you can't have been too rude.\n\n";
 	goto end;
 }
+elseif ($chart == 'give me a haiku; please my master overlord; i beg for your wit') {
+	goto haikuuu;
+}
 elseif ($chart == 'you\'re ugly' || $chart == 'youre ugly' || $chart == 'your ugly' || $chart == 'ur ugly' || $chart == 'you\'re dumb' || $chart == 'youre dumb' || $chart == 'your dumb' || $chart == 'ur dumb' ||
 $chart == 'im being rude' || $chart == 'I don\'t need your chart') {
 	echo "\n\033[0;31mok I'm pretty sure I explicitly said not to be rude. and you're being very rude. you get a \033[3;31mlittle\033[0;31m bit of credit for making it this far, but only a little bit.
@@ -201,7 +210,8 @@ elseif ($chart == 'no thank you, your majesty') {
 	if ($haiku == 'yes' || $haiku == 'ok' || $haiku == 'if you want' || $haiku == 'if u want' || $haiku == 'yea' || $haiku == 'sure' || $haiku == 'i guess' || $haiku == 'i guess so' || $haiku == 'fine' ||
 $haiku == 'mmhmm' || $haiku == 'mm-hmm' || $haiku == 'yes please' || $haiku == 'please' || $haiku == 'yes pls' || $haiku == 'yes plz' || $haiku == 'absolutely' || $haiku == 'definitely' || $haiku == 'of course' ||
 $haiku == 'for sure' || $haiku == 'always' || $haiku == 'yes your majesty' || $haiku == 'yes please, your majesty' || $haiku == 'yes please your majesty' || $haiku == 'ooo yes' || $haiku == 'most certainly' || $haiku == 'certainly' ||
-$haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely') {
+$haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely' || $haiku == 'give me a haiku; please my master overlord; i beg for your wit') {
+		haikuuu:
 		echo ("\n\033[0;34mhere you go!\n\n\033[0m");
 		$rand = array_rand($haikus,1);
 		$color = array_rand($colors,1);
