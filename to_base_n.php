@@ -202,6 +202,10 @@ I can't believe I put up with this. I wouldn't give you the chart now even if yo
 elseif ($chart == 'i hate you' || $chart == 'I hate you' || $chart == 'i hate u' || $chart == 'I hate u' || $chart == 'I HATE YOU' || $chart == 'I HATE U') {
   goto impressively_insulting;
 }
+elseif ($chart == 'please' || $chart == 'do it please' || $chart == 'give me a chart please') {
+	echo "\n\033[0;34mwell you got the please... the rest of your duplication isn't so good though...\n\n";
+	goto end;
+}
 //reward polite users
 elseif ($chart == 'no thank you, your majesty') {
 	echo ("\n\033[0;35mmy goodness! finally, somebody polite around here! my loyal subject, you are very, very welcome. would you care for a haiku?\033[1;36m\n\n");
@@ -231,10 +235,10 @@ $haiku == 'i would' || $haiku == 'quite' || $haiku == 'ye' || $haiku == 'surely'
 
 //get annoyed about really dumb users that didn't read the instructions
 elseif ($chart == 'yes' || $chart == 'ok' || $chart == 'if you want' || $chart == 'if u want' || $chart == 'yea' || $chart == 'sure' || $chart == 'i guess' || $chart == 'i guess so' || $chart == 'fine' ||
-$chart == 'mmhmm' || $chart == 'mm-hmm' || $chart == 'please' || $chart == 'yes pls' || $chart == 'yes plz' || $chart == 'absolutely' || $chart == 'definitely' || $chart == 'of course' ||
+$chart == 'mmhmm' || $chart == 'mm-hmm' || $chart == 'yes pls' || $chart == 'yes plz' || $chart == 'absolutely' || $chart == 'definitely' || $chart == 'of course' ||
 $chart == 'for sure' || $chart == 'always' || $chart == 'yes your majesty' || $chart == 'yes please, your majesty' || $chart == 'yes please your majesty' || $chart == 'ooo yes' || $chart == 'most certainly' || $chart == 'certainly' ||
 $chart == 'i would' || $chart == 'quite') {
-	die("\n\033[0;31mI do believe that it was stately quite clearly that the '\033[3;31mplease\033[0;31m' was \033[4;31mIMPORTANT\033[0;31m! no chart for you\033[0m\n\n");
+	die("\n\033[0;31mI do believe that it was stated quite clearly that the '\033[3;31mplease\033[0;31m' was \033[4;31mIMPORTANT\033[0;31m! no chart for you\033[0m\n\n");
 }
 //output chart for users that want it and asked correctly
 elseif ($chart == 'yes please') {
