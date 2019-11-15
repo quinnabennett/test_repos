@@ -95,6 +95,10 @@ elseif ($base == 0) {
 	echo ("\n\033[0;34mbase cannot be zero. please enter a new base:)\033[0m\n");
   goto enter_base;
 }
+elseif ($base == 1) {
+	echo ("\n\033[0;34msorry, base 1 does not work:(\033[0m\n");
+	goto enter_base;
+}
 else {
   goto convert;
 }
